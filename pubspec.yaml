@@ -42,10 +42,15 @@ dependencies:
   firebase_messaging: ^11.2.6
   firebase_storage: ^10.2.6
 
-  flutter_hooks:
+  flutter_hooks: ^0.18.0
   hooks_riverpod: ^2.0.2
 
   freezed_annotation: ^2.1.0
+   
+  google_fonts: 2.2.0
+  equatable: ^2.0.5
+  form_validators:
+    path: packages/form_validators
 
 dev_dependencies:
   flutter_test:
@@ -73,8 +78,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+     - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
