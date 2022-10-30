@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_validators/form_validators.dart';
 import '../../../general_providers.dart';
@@ -38,7 +37,6 @@ class SignInController extends StateNotifier<SignInState> {
     try {
       await _authenticationRepository.signInWithEmailAndPassword( email: state.email.value, password: state.password.value,);
       state = state.copyWith(status: FormzStatus.submissionSuccess);
-      debugPrint(_authenticationRepository.user.first.toString());
     } on SignInWithEmailAndPasswordFailure catch (e) {
       state = state.copyWith(
           status: FormzStatus.submissionFailure, errorMessage: e.code);

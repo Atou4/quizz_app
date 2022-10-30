@@ -23,9 +23,13 @@ mixin _$UserModel {
   String? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  String? get profileImageUrl => throw _privateConstructorUsedError;
-  dynamic get bio => throw _privateConstructorUsedError;
+  String? get bio => throw _privateConstructorUsedError;
   dynamic get token => throw _privateConstructorUsedError;
+  FileType? get fileType => throw _privateConstructorUsedError;
+  String? get fileuRl => throw _privateConstructorUsedError;
+  dynamic get filenameoriginalfilestorageid =>
+      throw _privateConstructorUsedError;
+  double? get aspectRatio => throw _privateConstructorUsedError;
   bool get obtained => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,9 +46,12 @@ abstract class $UserModelCopyWith<$Res> {
       {String? id,
       String? name,
       String? email,
-      String? profileImageUrl,
-      dynamic bio,
+      String? bio,
       dynamic token,
+      FileType? fileType,
+      String? fileuRl,
+      dynamic filenameoriginalfilestorageid,
+      double? aspectRatio,
       bool obtained});
 }
 
@@ -61,9 +68,12 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
     Object? id = freezed,
     Object? name = freezed,
     Object? email = freezed,
-    Object? profileImageUrl = freezed,
     Object? bio = freezed,
     Object? token = freezed,
+    Object? fileType = freezed,
+    Object? fileuRl = freezed,
+    Object? filenameoriginalfilestorageid = freezed,
+    Object? aspectRatio = freezed,
     Object? obtained = freezed,
   }) {
     return _then(_value.copyWith(
@@ -79,18 +89,30 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      profileImageUrl: profileImageUrl == freezed
-          ? _value.profileImageUrl
-          : profileImageUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
       bio: bio == freezed
           ? _value.bio
           : bio // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      fileType: fileType == freezed
+          ? _value.fileType
+          : fileType // ignore: cast_nullable_to_non_nullable
+              as FileType?,
+      fileuRl: fileuRl == freezed
+          ? _value.fileuRl
+          : fileuRl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      filenameoriginalfilestorageid: filenameoriginalfilestorageid == freezed
+          ? _value.filenameoriginalfilestorageid
+          : filenameoriginalfilestorageid // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      aspectRatio: aspectRatio == freezed
+          ? _value.aspectRatio
+          : aspectRatio // ignore: cast_nullable_to_non_nullable
+              as double?,
       obtained: obtained == freezed
           ? _value.obtained
           : obtained // ignore: cast_nullable_to_non_nullable
@@ -109,9 +131,12 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       {String? id,
       String? name,
       String? email,
-      String? profileImageUrl,
-      dynamic bio,
+      String? bio,
       dynamic token,
+      FileType? fileType,
+      String? fileuRl,
+      dynamic filenameoriginalfilestorageid,
+      double? aspectRatio,
       bool obtained});
 }
 
@@ -130,9 +155,12 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
     Object? email = freezed,
-    Object? profileImageUrl = freezed,
     Object? bio = freezed,
     Object? token = freezed,
+    Object? fileType = freezed,
+    Object? fileuRl = freezed,
+    Object? filenameoriginalfilestorageid = freezed,
+    Object? aspectRatio = freezed,
     Object? obtained = freezed,
   }) {
     return _then(_$_UserModel(
@@ -148,12 +176,26 @@ class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      profileImageUrl: profileImageUrl == freezed
-          ? _value.profileImageUrl
-          : profileImageUrl // ignore: cast_nullable_to_non_nullable
+      bio: bio == freezed
+          ? _value.bio
+          : bio // ignore: cast_nullable_to_non_nullable
               as String?,
-      bio: bio == freezed ? _value.bio : bio,
       token: token == freezed ? _value.token : token,
+      fileType: fileType == freezed
+          ? _value.fileType
+          : fileType // ignore: cast_nullable_to_non_nullable
+              as FileType?,
+      fileuRl: fileuRl == freezed
+          ? _value.fileuRl
+          : fileuRl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      filenameoriginalfilestorageid: filenameoriginalfilestorageid == freezed
+          ? _value.filenameoriginalfilestorageid
+          : filenameoriginalfilestorageid,
+      aspectRatio: aspectRatio == freezed
+          ? _value.aspectRatio
+          : aspectRatio // ignore: cast_nullable_to_non_nullable
+              as double?,
       obtained: obtained == freezed
           ? _value.obtained
           : obtained // ignore: cast_nullable_to_non_nullable
@@ -169,9 +211,12 @@ class _$_UserModel extends _UserModel with DiagnosticableTreeMixin {
       {this.id,
       required this.name,
       required this.email,
-      this.profileImageUrl,
       this.bio,
       this.token,
+      this.fileType,
+      this.fileuRl,
+      this.filenameoriginalfilestorageid,
+      this.aspectRatio,
       this.obtained = false})
       : super._();
 
@@ -185,18 +230,24 @@ class _$_UserModel extends _UserModel with DiagnosticableTreeMixin {
   @override
   final String? email;
   @override
-  final String? profileImageUrl;
-  @override
-  final dynamic bio;
+  final String? bio;
   @override
   final dynamic token;
+  @override
+  final FileType? fileType;
+  @override
+  final String? fileuRl;
+  @override
+  final dynamic filenameoriginalfilestorageid;
+  @override
+  final double? aspectRatio;
   @override
   @JsonKey()
   final bool obtained;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserModel(id: $id, name: $name, email: $email, profileImageUrl: $profileImageUrl, bio: $bio, token: $token, obtained: $obtained)';
+    return 'UserModel(id: $id, name: $name, email: $email, bio: $bio, token: $token, fileType: $fileType, fileuRl: $fileuRl, filenameoriginalfilestorageid: $filenameoriginalfilestorageid, aspectRatio: $aspectRatio, obtained: $obtained)';
   }
 
   @override
@@ -207,9 +258,13 @@ class _$_UserModel extends _UserModel with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('profileImageUrl', profileImageUrl))
       ..add(DiagnosticsProperty('bio', bio))
       ..add(DiagnosticsProperty('token', token))
+      ..add(DiagnosticsProperty('fileType', fileType))
+      ..add(DiagnosticsProperty('fileuRl', fileuRl))
+      ..add(DiagnosticsProperty(
+          'filenameoriginalfilestorageid', filenameoriginalfilestorageid))
+      ..add(DiagnosticsProperty('aspectRatio', aspectRatio))
       ..add(DiagnosticsProperty('obtained', obtained));
   }
 
@@ -221,10 +276,15 @@ class _$_UserModel extends _UserModel with DiagnosticableTreeMixin {
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality()
-                .equals(other.profileImageUrl, profileImageUrl) &&
             const DeepCollectionEquality().equals(other.bio, bio) &&
             const DeepCollectionEquality().equals(other.token, token) &&
+            const DeepCollectionEquality().equals(other.fileType, fileType) &&
+            const DeepCollectionEquality().equals(other.fileuRl, fileuRl) &&
+            const DeepCollectionEquality().equals(
+                other.filenameoriginalfilestorageid,
+                filenameoriginalfilestorageid) &&
+            const DeepCollectionEquality()
+                .equals(other.aspectRatio, aspectRatio) &&
             const DeepCollectionEquality().equals(other.obtained, obtained));
   }
 
@@ -235,9 +295,12 @@ class _$_UserModel extends _UserModel with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(profileImageUrl),
       const DeepCollectionEquality().hash(bio),
       const DeepCollectionEquality().hash(token),
+      const DeepCollectionEquality().hash(fileType),
+      const DeepCollectionEquality().hash(fileuRl),
+      const DeepCollectionEquality().hash(filenameoriginalfilestorageid),
+      const DeepCollectionEquality().hash(aspectRatio),
       const DeepCollectionEquality().hash(obtained));
 
   @JsonKey(ignore: true)
@@ -258,9 +321,12 @@ abstract class _UserModel extends UserModel {
       {final String? id,
       required final String? name,
       required final String? email,
-      final String? profileImageUrl,
-      final dynamic bio,
+      final String? bio,
       final dynamic token,
+      final FileType? fileType,
+      final String? fileuRl,
+      final dynamic filenameoriginalfilestorageid,
+      final double? aspectRatio,
       final bool obtained}) = _$_UserModel;
   const _UserModel._() : super._();
 
@@ -274,11 +340,17 @@ abstract class _UserModel extends UserModel {
   @override
   String? get email;
   @override
-  String? get profileImageUrl;
-  @override
-  dynamic get bio;
+  String? get bio;
   @override
   dynamic get token;
+  @override
+  FileType? get fileType;
+  @override
+  String? get fileuRl;
+  @override
+  dynamic get filenameoriginalfilestorageid;
+  @override
+  double? get aspectRatio;
   @override
   bool get obtained;
   @override

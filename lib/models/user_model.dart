@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:quizz_app/models/image_upload/file_type.dart';
 
 part 'user_model.g.dart';
 part 'user_model.freezed.dart';
@@ -13,7 +14,11 @@ abstract class UserModel implements _$UserModel {
    String? id,
    required String?  name,
    required String? email,
-   String? profileImageUrl, bio, token,
+   String?  bio, token,
+   FileType? fileType,
+   String? fileuRl,filenameoriginalfilestorageid,
+   double? aspectRatio,
+
 
     @Default(false) bool obtained,
   }) = _UserModel;

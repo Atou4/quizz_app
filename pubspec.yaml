@@ -48,9 +48,15 @@ dependencies:
   freezed_annotation: ^2.1.0
    
   google_fonts: 2.2.0
+  lottie: ^1.4.3 
   equatable: ^2.0.5
   form_validators:
     path: packages/form_validators
+
+  image: ^3.2.2
+  image_picker: ^0.8.6 
+
+  uuid: ^3.0.6
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +86,11 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - assets/images/
+     - assets/animations/empty_quiz.json
+     - assets/animations/error.json
+     - assets/animations/qui_start_go.json
+     - assets/animations/opener-loading.json
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

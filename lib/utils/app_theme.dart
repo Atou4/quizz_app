@@ -74,7 +74,7 @@ class Apptheme {
           color: AppColors.black),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.blue,
       elevation: 0,
       toolbarTextStyle:GoogleFonts.openSans(
           fontSize: 20,
@@ -93,9 +93,9 @@ class Apptheme {
       backgroundColor: AppColors.white,
       type: BottomNavigationBarType.fixed,
       elevation: 10.0,
-      selectedItemColor: AppColors.black,
-      unselectedItemColor: AppColors.white,
-      selectedLabelStyle:TextStyle(color: AppColors.white, height: 1),
+      selectedItemColor: AppColors.blue,
+      unselectedItemColor: AppColors.darkgrey,
+      selectedLabelStyle:TextStyle(color: AppColors.blue, height: 1),
       unselectedLabelStyle:TextStyle(color: AppColors.grey, height: 1),
     ),
   );
