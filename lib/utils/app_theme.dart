@@ -94,7 +94,7 @@ class Apptheme {
       type: BottomNavigationBarType.fixed,
       elevation: 10.0,
       selectedItemColor: AppColors.blue,
-      unselectedItemColor: AppColors.darkgrey,
+      unselectedItemColor: AppColors.grey,
       selectedLabelStyle:TextStyle(color: AppColors.blue, height: 1),
       unselectedLabelStyle:TextStyle(color: AppColors.grey, height: 1),
     ),

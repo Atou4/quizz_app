@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quizz_app/views/home/home_screen.dart';
 import 'package:quizz_app/views/profile/profile_screen.dart';
@@ -12,7 +13,7 @@ class Botnavbar extends HookConsumerWidget {
     return Scaffold(
       body: IndexedStack(
         index: ref.watch(indexProvider),
-        children: [HomeScreen(), HomeScreen(), HomeScreen(), ProfileScreen()],
+        children: [HomeScreen(), HomeScreen(), ProfileScreen()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: ref.watch(indexProvider),
@@ -21,25 +22,15 @@ class Botnavbar extends HookConsumerWidget {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: const Icon(Icons.home_outlined),
+            icon:  FaIcon(FontAwesomeIcons.house),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: const Padding(
-              padding: EdgeInsets.only(right: 5),
-              child: Icon(Icons.chat_bubble_outline),
-            ),
-            label: "Chat",
+            icon:  FaIcon(FontAwesomeIcons.trophy),
+            label: "Leaderboard",
           ),
           BottomNavigationBarItem(
-            icon: const Padding(
-              padding: EdgeInsets.only(left: 5),
-              child: Icon(CupertinoIcons.gamecontroller),
-            ),
-            label: "Quiz",
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.person_outline),
+            icon:  FaIcon(FontAwesomeIcons.solidUser),
             label: "Profile",
           ),
         ],

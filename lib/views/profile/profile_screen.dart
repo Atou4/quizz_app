@@ -31,7 +31,7 @@ class ProfileScreen extends ConsumerWidget {
           'Profile',
           style: Theme.of(context)
               .textTheme
-              .headline6!
+              .headline5!
               .copyWith(color: AppColors.white, fontWeight: FontWeight.bold),
           textAlign: TextAlign.justify,
         ),
@@ -44,9 +44,14 @@ class ProfileScreen extends ConsumerWidget {
               clipBehavior: Clip.none,
               children: [
                 Container(
-                  height: size.height / 3,
+                  height: size.height / 3.5,
                   width: size.width,
-                  color: AppColors.blue,
+                  decoration: BoxDecoration(
+                    color: AppColors.blue,
+                    borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(10)),
+                  ),
                 ),
                 Profilewidget(),
                 (authUser.value?.fileuRl != null)
@@ -107,7 +112,7 @@ class Profilewidget extends ConsumerWidget {
               if (imageFile == null) {
                 return;
               }
-               await ref
+              await ref
                   .read(UserProfileControllerProvider.notifier)
                   .upload(file: imageFile);
             },

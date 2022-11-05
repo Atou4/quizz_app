@@ -50,6 +50,7 @@ dependencies:
   google_fonts: 2.2.0
   lottie: ^1.4.3 
   equatable: ^2.0.5
+  font_awesome_flutter: ^10.2.1
   form_validators:
     path: packages/form_validators
 
