@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:quizz_app/views/leaderboard/components/contestant_widget.dart';
-import '../../utils/app_colors.dart';
-import '../../utils/constants.dart';
+import 'package:quizz_app/views/client/leaderboard/components/contestant_widget.dart';
+import '../../../utils/app_colors.dart';
+import '../../../utils/constants.dart';
 import 'components/leaderboard_stats.dart';
 
 class LeaderboardScreen extends ConsumerWidget {

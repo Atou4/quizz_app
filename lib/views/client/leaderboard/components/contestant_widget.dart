@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizz_app/utils/constants.dart';
 
-import '../../../utils/app_colors.dart';
+import '../../../../utils/app_colors.dart';
 
 class ContestantWidget extends StatelessWidget {
   const ContestantWidget({super.key});

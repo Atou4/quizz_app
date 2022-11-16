@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizz_app/views/leaderboard/components/contestant_widget.dart';
+import 'package:quizz_app/views/client/leaderboard/components/contestant_widget.dart';
 
 class Contestantlist extends StatelessWidget {
   final List<String>? articles;
@@ -16,7 +16,7 @@ class Contestantlist extends StatelessWidget {
           scrollDirection: Axis.vertical,
           itemCount: articles!.length,
           itemBuilder: (BuildContext context, int index) {
-            final article = articles![index];
+           // final article = articles![index];
             return ContestantWidget();
           },
         ));

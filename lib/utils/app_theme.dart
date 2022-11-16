@@ -98,5 +98,7 @@ class Apptheme {
       selectedLabelStyle:TextStyle(color: AppColors.blue, height: 1),
       unselectedLabelStyle:TextStyle(color: AppColors.grey, height: 1),
     ),
+    bottomSheetTheme:
+              const BottomSheetThemeData(backgroundColor: AppColors.lightblue,),
   );
 }

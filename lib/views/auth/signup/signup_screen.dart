@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:form_validators/form_validators.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quizz_app/controllers/auth/signup/signup_controller.dart';
+import 'package:quizz_app/views/admin/admin_bottomnav.dart';
 import 'package:quizz_app/views/auth/login/components/login_topscreen.dart';
 import 'package:quizz_app/views/auth/login/login_screen.dart';
 import 'package:quizz_app/views/auth/signup/components/email_textfield.dart';
@@ -9,6 +10,7 @@ import 'package:quizz_app/views/auth/signup/components/password_textfield.dart';
 import 'package:quizz_app/widgets/loading/loading_error.dart';
 
 import '../../../utils/constants.dart';
+import '../../../widgets/animated_button.dart';
 import '../../../widgets/have_an_acc.dart';
 import 'components/name_textfiled.dart';
 import 'components/signup_button.dart';
@@ -61,6 +63,26 @@ class SignUpScreen extends HookConsumerWidget {
                         tag: "signup_btn",
                         child: SignUnButton(),
                       ),
+                     const SizedBox(height: defaultPadding),
+                     Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: defaultPadding * 4,
+                          vertical: defaultPadding),
+                      child: AnimatedButton(
+                        isValidated: false,
+                        text: "Admin Panel",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return AdminBotnavbar();
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                      const SizedBox(height: defaultPadding),
                       AlreadyHaveAnAccountCheck(
                         login: false,

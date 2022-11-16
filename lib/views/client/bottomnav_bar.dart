@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:quizz_app/views/home/home_screen.dart';
-import 'package:quizz_app/views/leaderboard/leaderboard_screen.dart';
+import 'package:quizz_app/views/client/home/home_screen.dart';
+import 'package:quizz_app/views/client/leaderboard/leaderboard_screen.dart';
 import 'package:quizz_app/views/profile/profile_screen.dart';
 
 var indexProvider = StateProvider((ref) => 0);

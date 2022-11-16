@@ -3,11 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:quizz_app/views/home/components/categories/category_scree.dart';
+import 'package:quizz_app/views/client/home/components/categories/category_scree.dart';
 
-import '../../data/data.dart';
-import '../../utils/app_colors.dart';
-import '../../utils/constants.dart';
+import '../../../data/data.dart';
+import '../../../utils/app_colors.dart';
+import '../../../utils/constants.dart';
 import 'components/categories/categories_list.dart';
 import 'components/stats_widget.dart';
 
@@ -85,7 +85,7 @@ class HomeScreen extends ConsumerWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const CategoryScreen()),
+                            builder: (context) => const CategoryScreen(admin: false,)),
                       );
                     },
                     child: Text(

@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexagon/hexagon.dart';
 import 'package:quizz_app/utils/app_colors.dart';
 
-import '../../../utils/constants.dart';
+import '../../../../utils/constants.dart';
 
 class LeaderboWidget extends StatelessWidget {
   const LeaderboWidget({Key? key}) : super(key: key);

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quizz_app/utils/constants.dart';
-import 'package:quizz_app/views/home/components/categories/categories_grid_list.dart';
+import 'package:quizz_app/views/client/home/components/categories/categories_grid_list.dart';
 import 'package:quizz_app/widgets/animated_button.dart';
 
-import '../../../../data/data.dart';
-import '../../../../utils/app_colors.dart';
+import '../../../../../data/data.dart';
+import '../../../../../utils/app_colors.dart';
 
 class CategoryScreen extends ConsumerWidget {
-  const CategoryScreen({Key? key}) : super(key: key);
+  final bool admin;
+  const CategoryScreen({Key? key,required this.admin, }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,8 +19,10 @@ class CategoryScreen extends ConsumerWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.chevron_left, color: AppColors.white),
-          onPressed: () {},
+          icon: Icon(Icons.chevron_left, color: AppColors.white,size:30),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: Text(
           'Choose Category',
@@ -49,7 +52,7 @@ class CategoryScreen extends ConsumerWidget {
                           bottomRight: Radius.circular(10)),
                     ),
                   ),
-                  ListWidget(),
+                  ListWidget(120,admin: admin,),
                 ],
               ),
               const Spacer(),
@@ -67,7 +70,9 @@ class CategoryScreen extends ConsumerWidget {
 }
 
 class ListWidget extends ConsumerWidget {
-  const ListWidget({Key? key}) : super(key: key);
+   final double topmargin;
+   final bool admin;
+  const ListWidget(this.topmargin, {Key? key,required this.admin}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -75,7 +80,7 @@ class ListWidget extends ConsumerWidget {
 
     return Container(
       width: size.width,
-      margin: EdgeInsets.only(left: 16, right: 16, top: 120),
+      margin: EdgeInsets.only(left: 16, right: 16, top: topmargin),
       padding: EdgeInsets.symmetric(
           horizontal: defaultPadding, vertical: defaultPadding),
       decoration: BoxDecoration(
@@ -85,7 +90,7 @@ class ListWidget extends ConsumerWidget {
       ),
       child: Column(
         children: [
-          Categoriesgridlist(categories: categroieslist),
+          Categoriesgridlist(categories: categroieslist, admin: admin,),
         ],
       ),
     );

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../utils/app_colors.dart';
-import '../../../utils/constants.dart';
+import '../../../../utils/app_colors.dart';
+import '../../../../utils/constants.dart';
 
-class StatsWidget extends ConsumerWidget {
-  const StatsWidget({Key? key}) : super(key: key);
+class AdminStatsWidget extends ConsumerWidget {
+ 
+  const AdminStatsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,13 +28,13 @@ class StatsWidget extends ConsumerWidget {
               Column(
                 children: [
                   FaIcon(
-                    FontAwesomeIcons.solidStar,
+                    FontAwesomeIcons.userGraduate,
                     color: AppColors.blue,
                     size:30
                   ),
                   const SizedBox(height: defaultPadding / 4),
                   Text(
-                    "Points",
+                    "Players",
                     style: Theme.of(context)
                         .textTheme
                         .caption!
@@ -41,7 +42,7 @@ class StatsWidget extends ConsumerWidget {
                   ),
                   const SizedBox(height: defaultPadding / 4),
                   Text(
-                    "1025",
+                    "100",
                     style: Theme.of(context)
                         .textTheme
                         .button
@@ -55,49 +56,21 @@ class StatsWidget extends ConsumerWidget {
               Column(
                 children: [
                   FaIcon(
-                    FontAwesomeIcons.globe,
+                    FontAwesomeIcons.clipboardQuestion,
                     color: AppColors.blue,
                     size:30
                   ),
                   const SizedBox(height: defaultPadding / 4),
                   Text(
-                    "World Rank",
+                    "quizzes ",
                     style: Theme.of(context)
                         .textTheme
                         .caption!
                         .copyWith(color: AppColors.grey),
                   ),
-                  const SizedBox(height: defaultPadding / 4),
+                  const SizedBox(height: defaultPadding / 4), 
                   Text(
-                    "1025",
-                    style: Theme.of(context)
-                        .textTheme
-                        .button
-                  ),
-                ],
-              ),
-              const VerticalDivider(
-                thickness: 0.5,
-                color: AppColors.grey,
-              ),
-              Column(
-                children: [
-                  FaIcon(
-                    FontAwesomeIcons.trophy,
-                    color: AppColors.blue,
-                    size:30
-                  ),
-                  const SizedBox(height: defaultPadding / 4),
-                  Text(
-                    "Trophies ",
-                    style: Theme.of(context)
-                        .textTheme
-                        .caption!
-                        .copyWith(color: AppColors.grey),
-                  ),
-                  const SizedBox(height: defaultPadding / 4),
-                  Text(
-                    "1025",
+                    "5",
                     style: Theme.of(context)
                         .textTheme
                         .button
