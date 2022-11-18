@@ -85,7 +85,9 @@ class HomeScreen extends ConsumerWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const CategoryScreen(admin: false,)),
+                            builder: (context) => const CategoryScreen(
+                                  admin: false,
+                                )),
                       );
                     },
                     child: Text(
@@ -111,100 +113,80 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: defaultPadding),
-            Container(
-                width: size.width,
-                margin: EdgeInsets.only(
-                    left: defaultPadding, right: defaultPadding),
-                padding: EdgeInsets.symmetric(
-                    horizontal: defaultPadding, vertical: defaultPadding),
-                decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                Padding(
+              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+              child: ListTile(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: IntrinsicHeight(
-                  child: Row(
-                    children: [
-                      FaIcon(FontAwesomeIcons.userPlus,
-                          color: AppColors.blue, size: 40),
-                      const SizedBox(width: defaultPadding),
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
+                contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                leading: FaIcon(FontAwesomeIcons.userPlus,
+                    size: 35, color: AppColors.blue),
+                    tileColor: AppColors.white,
+                title: Text(
                               'Play with a friend',
                               style: Theme.of(context).textTheme.bodyText1,
                               textAlign: TextAlign.justify,
                             ),
-                            Text(
-                              'Invite your friend to start a quiz with u',
-                              style: Theme.of(context).textTheme.caption,
-                              textAlign: TextAlign.justify,
-                            ),
-                          ])
-                    ],
-                  ),
-                )),
-            const SizedBox(height: defaultPadding),
-            Container(
-                width: size.width,
-                margin: EdgeInsets.only(
-                    left: defaultPadding, right: defaultPadding),
-                padding: EdgeInsets.symmetric(
-                    horizontal: defaultPadding, vertical: defaultPadding),
-                decoration: BoxDecoration(
-                  color: AppColors.blue,
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                subtitle: Text(
+                  'Invite your friend to start a quiz with u',
+                  style: Theme.of(context)
+                      .textTheme
+                      .caption,
+                  textAlign: TextAlign.justify,
                 ),
-                child: IntrinsicHeight(
-                  child: Row(
-                    children: [
-                      FaIcon(FontAwesomeIcons.gamepad,
-                          color: AppColors.lightblue, size: 40),
-                      const SizedBox(width: defaultPadding),
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Start a quick quiz',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .copyWith(color: AppColors.lightblue),
-                              textAlign: TextAlign.justify,
-                            ),
-                            Text(
-                              'Climb up the Quizzy leaderboar',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .caption!
-                                  .copyWith(color: AppColors.lightblue),
-                              textAlign: TextAlign.justify,
-                            ),
-                          ]),
-                      const SizedBox(width: defaultPadding / 4),
-                      Expanded(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: defaultPadding / 2,
-                                  vertical: defaultPadding / 2),
-                              child: Center(
-                                child: FaIcon(
-                                  FontAwesomeIcons.arrowRight,
-                                  color: AppColors.white,
-                                  size: 20,
+              ),
+            ),
+            const SizedBox(height: defaultPadding),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+              child: ListTile(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(width: 1, color: AppColors.blue),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                trailing: FittedBox(
+                  child: ClipRRect(
+                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: defaultPadding / 2,
+                                      vertical: defaultPadding / 2),
+                                  child: Center(
+                                    child: FaIcon(
+                                      FontAwesomeIcons.arrowRight,
+                                      color: AppColors.white,
+                                      size: 20,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
+                ),
+                contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                leading: FaIcon(FontAwesomeIcons.gamepad,
+                    size: 35, color: AppColors.white),
+                    tileColor: AppColors.blue,
+                title: Text(
+                                'Start a quick quiz',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .copyWith(color: AppColors.lightblue),
+                                textAlign: TextAlign.justify,
+                              ),
+                subtitle: Text(
+                  'Climb up the Quizzy leaderboar',
+                  style: Theme.of(context)
+                      .textTheme
+                      .caption!
+                      .copyWith(color: AppColors.lightblue),
+                  textAlign: TextAlign.justify,
+                ),
+              ),
+            ),
           ],
         ),
       ),

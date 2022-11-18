@@ -95,6 +95,7 @@ class AddQuizz extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: AnimatedButton(
+                  color:  AppColors.blue,
                     onPressed: () {
                     quizList.createQuiz(quiz: QuizModel(quizname: question_name, category: category_name, difficulty: duration_minutes));
                       Navigator.push(

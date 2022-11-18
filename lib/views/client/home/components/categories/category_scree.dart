@@ -58,7 +58,7 @@ class CategoryScreen extends ConsumerWidget {
               const Spacer(),
               Padding(
                  padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-                child: AnimatedButton(onPressed: (){}, isValidated: false, text: 'Next'),
+                child: AnimatedButton(onPressed: (){}, isValidated: false, text: 'Next', color:  AppColors.blue,),
               ),
               const SizedBox(height: defaultPadding,)
             ],

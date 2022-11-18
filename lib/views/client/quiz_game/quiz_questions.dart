@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:quizz_app/views/client/bottomnav_bar.dart';
+import 'package:quizz_app/views/animations/empty_animation.dart';
+import 'package:quizz_app/views/animations/go_animation.dart';
 
 import '../../../controllers/quiz/quiz_gaem_controller.dart';
 import '../../../controllers/quiz/quiz_state.dart';
 import '../../../models/question_model.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/constants.dart';
-import '../../../widgets/animated_button.dart';
 import '../../../widgets/card_answer.dart';
 
-class QuizQuestions extends ConsumerWidget {
+class QuizQuestions extends HookConsumerWidget {
   final PageController pageController;
   final QuizState state;
   final List<QuestionModel?> questions;
@@ -23,7 +24,13 @@ class QuizQuestions extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
-    return PageView.builder(
+    final showMain =useState(false) ;
+
+    Future.delayed(Duration(seconds: 3)).then((_) {
+      showMain.value = true;
+   } );
+    return showMain.value?
+    PageView.builder(
       controller: pageController,
       physics: NeverScrollableScrollPhysics(),
       itemCount: questions.length,
@@ -129,27 +136,11 @@ class QuizQuestions extends ConsumerWidget {
                 
               ],
             ),
-           /* Padding(
-              padding:  EdgeInsets.symmetric(horizontal: defaultPadding*4,vertical: defaultPadding),
-              child: AnimatedButton(
-                
-                  isValidated: false,
-                  text: "Exit",
-                  onPressed: () {
-                    Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return Botnavbar();
-                  },
-                ),
-              );
-                  },
-                ),
-            )*/
           ],
         );
       },
-    );
+    )
+    :Center(child: goAnimationView());
+    
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quizz_app/models/quiz_model.dart';
 import 'package:quizz_app/views/animations/error_animation.dart';
+import 'package:quizz_app/views/client/bottomnav_bar.dart';
 import 'package:quizz_app/views/client/quiz_game/quiz_questions.dart';
 import 'package:quizz_app/views/client/quiz_game/quiz_results.dart';
 import 'package:quizz_app/widgets/animated_button.dart';
@@ -51,7 +52,7 @@ class QuizGameScreen extends HookConsumerWidget {
                         curve: Curves.linear,
                       );
                     }
-                  },
+                  }, color: AppColors.blue,
                 ),
             ));
   }

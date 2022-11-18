@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_validators/form_validators.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:quizz_app/utils/app_colors.dart';
 
 import '../../../../controllers/auth/signup/signup_controller.dart';
 import '../../../../widgets/animated_button.dart';
@@ -16,7 +17,7 @@ class SignUnButton extends ConsumerWidget {
     return AnimatedButton(
       onPressed:  () => signUpController.signUpWithEmailAndPassword(),
       isValidated: isValidated,
-      text: "Sign Up",
+      text: "Sign Up", color: AppColors.blue,
     );
   }
 }

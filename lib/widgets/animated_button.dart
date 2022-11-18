@@ -7,11 +7,12 @@ class AnimatedButton extends StatefulWidget {
   final bool isValidated;
   final String text;
   final VoidCallback? onPressed;
+  final Color? color;
   const AnimatedButton(
       {super.key,
       required this.onPressed,
       this.isloading = false,
-      required this.isValidated, required this.text});
+      required this.isValidated, required this.text,required this.color});
 
   @override
   State<AnimatedButton> createState() => _AnimatedButtonState();
@@ -28,7 +29,7 @@ class _AnimatedButtonState extends State<AnimatedButton> {
             ? OutlinedButton(
                 style: ElevatedButton.styleFrom(
                   elevation: 1,
-                  backgroundColor: AppColors.blue,
+                  backgroundColor: widget.color,
                   shape: const StadiumBorder(),
                 ),
                 onPressed: widget.onPressed,
@@ -45,7 +46,7 @@ class _AnimatedButtonState extends State<AnimatedButton> {
               onTap: widget.onPressed ,
               child: Container(
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: AppColors.blue),
+                      shape: BoxShape.circle, color: widget.color),
                   child: Icon(
                           Icons.done,
                           color: AppColors.green,

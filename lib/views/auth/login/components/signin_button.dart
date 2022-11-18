@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quizz_app/widgets/animated_button.dart';
 
 import '../../../../controllers/auth/login/login_controller.dart';
+import '../../../../utils/app_colors.dart';
 
 class SignInButton extends ConsumerWidget {
   const SignInButton({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class SignInButton extends ConsumerWidget {
     final bool isValidated = signInState.status.isValidated;
     final signInController = ref.read(signInProvider.notifier);
     return AnimatedButton(
+      color:  AppColors.blue,
       isloading: isloading,
       onPressed:  () => signInController.signInWithEmailAndPassword(),
       text: "Sign In",

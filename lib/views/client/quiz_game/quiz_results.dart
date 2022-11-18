@@ -20,25 +20,15 @@ class QuizResults extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: AppColors.blue,
       body: Column(
         children: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Container(
-                height: size.height / 3.5,
-                width: size.width,
-                decoration: BoxDecoration(
-                  color: AppColors.blue,
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
-                ),
-              ),
+          Center(
+            child: 
               Container(
                 width: size.width,
                 margin: EdgeInsets.only(
-                    left: defaultPadding, right: defaultPadding, top: 60),
+                    left: defaultPadding, right: defaultPadding, top: 120),
                 padding: EdgeInsets.symmetric(
                     horizontal: defaultPadding, vertical: defaultPadding),
                 decoration: BoxDecoration(
@@ -59,9 +49,8 @@ class QuizResults extends ConsumerWidget {
                       textAlign: TextAlign.justify,
                     ),
                     const SizedBox(height: defaultPadding ),
-                    goAnimationView(),
-                    const SizedBox(height: defaultPadding ),
                     AnimatedButton(
+                      color:  AppColors.blue,
                       onPressed: () {
                         ref.refresh(quizRepositoryProvider);
                         ref.read(quizControllerProvider.notifier).reset();
@@ -75,6 +64,7 @@ class QuizResults extends ConsumerWidget {
                           horizontal: defaultPadding * 4,
                           vertical: defaultPadding),
                       child: AnimatedButton(
+                        color:  AppColors.grey,
                         isValidated: false,
                         text: "Exit",
                         onPressed: () {
@@ -91,9 +81,8 @@ class QuizResults extends ConsumerWidget {
                     )
                   ],
                 ),
-              )
-            ],
-          ),
+              ),
+          )
         ],
       ),
     );

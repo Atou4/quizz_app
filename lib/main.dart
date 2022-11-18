@@ -1,11 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:quizz_app/views/admin/admin_bottomnav.dart';
 import 'package:quizz_app/views/auth/login/login_screen.dart';
-import 'package:quizz_app/views/auth/signup/signup_screen.dart';
 import 'package:quizz_app/utils/app_theme.dart';
 import 'package:quizz_app/views/client/bottomnav_bar.dart';
+import 'package:quizz_app/views/select_user.dart';
 import 'package:quizz_app/widgets/loading/loading_error.dart';
 
 import 'controllers/auth/auth_controller.dart';
@@ -42,7 +41,7 @@ class MyApp extends ConsumerWidget {
           return Botnavbar();
         } else if (authenticationState.status ==
             AuthenticationStatus.unauthenticated) {
-          return const SignUpScreen();
+          return const ChooseUser();
         } else {
           return const LoginScreen();
         }

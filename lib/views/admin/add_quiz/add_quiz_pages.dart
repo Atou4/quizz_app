@@ -157,8 +157,9 @@ class QuizQuestions extends ConsumerWidget {
                               Navigator.pop(context);
                             },
                             isValidated: false,
-                            text: 'Done')
+                            text: 'Done', color:  AppColors.blue,)
                         : AnimatedButton(
+                          color:  AppColors.blue,
                             onPressed: () {
                               quizList.updateQuizQuestion(
                                   quizid: ref.read(quizid.notifier).state,
