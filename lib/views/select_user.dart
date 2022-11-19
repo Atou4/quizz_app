@@ -11,8 +11,10 @@ class ChooseUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
+    return Scaffold(
+      backgroundColor:AppColors.lightblue,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           AnimatedButton(
             isValidated: false,
@@ -32,7 +34,7 @@ class ChooseUser extends StatelessWidget {
           const SizedBox(height: defaultPadding,),
           AnimatedButton(
             isValidated: false,
-            text: "Admin Panel",
+            text: "Signup",
             onPressed: () {
               Navigator.push(
                 context,
@@ -43,7 +45,7 @@ class ChooseUser extends StatelessWidget {
                 ),
               );
             },
-            color: AppColors.blue,
+            color: AppColors.grey,
           ),
         ],
       ),

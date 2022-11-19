@@ -38,7 +38,7 @@ final filteredquizListProvider = Provider<List<QuizModel>>((ref) {
 final quizListExceptionProvider = StateProvider<CustomException?>((_) => null);
 
 final QuizListProvider = StreamProvider.autoDispose<Iterable<QuizModel> >((ref) {
-  final controller = StreamController<Iterable<QuizModel> >(); 
+  final controller = StreamController<Iterable<QuizModel>>(); 
   final snap =
            ref.read(firebaseFirestoreProvider).quizListRef().where("category",isEqualTo: ref.read(categorynameprovider.notifier).state).snapshots().listen(
       (snapshots) {
@@ -52,7 +52,7 @@ final QuizListProvider = StreamProvider.autoDispose<Iterable<QuizModel> >((ref) 
 
   ref.onDispose(() {
     snap.cancel();
-      controller.close();
+    controller.close();
     });
 
   return controller.stream;
