@@ -1,16 +1,22 @@
 # quizz_app
+A quiz app concept built in Flutter using firebase,firestore database and storage.
 
-A new Flutter project.
+## Features
+* Admin panel where the admin can remove or add quizes
+* Login and signup with email
+* Profile info with profile image .
+* Kahoot style quiz 
+* responsive ui
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
+#client side
 
-A few resources to get you started if this is your first Flutter project:
+headlines Page             |  articles Page            |  countries search Page    | search Page            
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/56259590/202844678-c2f2b340-9a33-4103-9b0c-842a609c54e9.jpeg)|![](https://user-images.githubusercontent.com/56259590/202844683-cfa6d2e7-0755-449b-983e-051a838a8fc6.jpeg)|![](https://user-images.githubusercontent.com/56259590/202844685-9d1ab094-c152-49ab-8d08-986e93f2e9d1.jpeg)|![](https://user-images.githubusercontent.com/56259590/202844698-da7b532c-2992-4860-8a37-c59269bd4cab.jpeg)|
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+headlines Page             |  articles Page            |  countries search Page    | search Page            
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![]()|![]()|![]()|![]()|
