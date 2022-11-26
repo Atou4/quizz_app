@@ -17,6 +17,7 @@ abstract class QuizBaseRepository {
   Future<void> updateQuizQuestion({required String quizid, required QuestionModel quiz});
   Future<String> createQuiz({required QuizModel quiz});
   Future<void> deleteQuiz({required String quizid});
+  Future<void> retrieveAllQuizes();
 }
 
 final quizRepositoryProvider =
@@ -52,6 +53,16 @@ class QuizRepository implements QuizBaseRepository {
     }
   }
 
+  @override
+  Future<List<QuizModel>> retrieveAllQuizes() async {
+    try {
+      final snap =
+          await ref.read(firebaseFirestoreProvider).quizListRef().get();;
+      return snap.docs.map((doc) => QuizModel.fromDocument(doc)).toList(); 
+    } on FirebaseException catch (e) {
+      throw CustomException(message: e.message);
+    }
+  }
 
   @override
   Future<void> updateQuiz({required String quizid, required QuizModel quiz}) async {

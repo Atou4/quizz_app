@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -23,15 +22,24 @@ class Botnavbar extends HookConsumerWidget {
         },
         items: const [
           BottomNavigationBarItem(
-            icon:  FaIcon(FontAwesomeIcons.house),
+            icon: Padding(
+              padding: EdgeInsets.only(top: 5.0),
+              child: FaIcon(FontAwesomeIcons.house),
+            ),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon:  FaIcon(FontAwesomeIcons.trophy),
+            icon: Padding(
+              padding: EdgeInsets.only(top: 5.0),
+              child: FaIcon(FontAwesomeIcons.trophy),
+            ),
             label: "Leaderboard",
           ),
           BottomNavigationBarItem(
-            icon:  FaIcon(FontAwesomeIcons.solidUser),
+            icon: Padding(
+              padding: EdgeInsets.only(top: 5.0),
+              child: FaIcon(FontAwesomeIcons.solidUser),
+            ),
             label: "Profile",
           ),
         ],

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:quizz_app/controllers/user/userprofile_controller.dart';
 
+import '../../../../controllers/quiz/quiz_model_controller.dart';
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/constants.dart';
 
@@ -12,6 +14,9 @@ class AdminStatsWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
+    final quizListprovider = ref.watch(quizListControllerProvider);
+    final userListprovider = ref.watch(UserProfileControllerProvider);
+    
     return Container(
         width: size.width,
         margin: EdgeInsets.only(left: defaultPadding, right: defaultPadding, top: 120),
@@ -42,7 +47,7 @@ class AdminStatsWidget extends ConsumerWidget {
                   ),
                   const SizedBox(height: defaultPadding / 4),
                   Text(
-                    "100",
+                   userListprovider.value!.aspectRatio!.round().toString(),
                     style: Theme.of(context)
                         .textTheme
                         .button
@@ -70,7 +75,7 @@ class AdminStatsWidget extends ConsumerWidget {
                   ),
                   const SizedBox(height: defaultPadding / 4), 
                   Text(
-                    "5",
+                  quizListprovider.value!.length.toString(),
                     style: Theme.of(context)
                         .textTheme
                         .button

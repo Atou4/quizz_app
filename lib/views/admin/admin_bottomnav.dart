@@ -9,98 +9,147 @@ import 'home/admin_home.dart';
 
 var indexProvider = StateProvider((ref) => 0);
 
-class AdminBotnavbar extends HookConsumerWidget {
+class AdminBotnavbar extends ConsumerStatefulWidget {
+  const AdminBotnavbar({super.key});
+
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ConsumerStatefulWidget> createState() => _AdminBotnavbarState();
+}
+
+class _AdminBotnavbarState extends ConsumerState<AdminBotnavbar>
+    with TickerProviderStateMixin {
+  late AnimationController _onpagedisplaycontroller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _onpagedisplaycontroller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 150),
+    );
+  }
+
+  @override
+  void dispose() {
+    _onpagedisplaycontroller.dispose();
+    super.dispose();
+  }
+
+  bool _isPageClosed() {
+    return _onpagedisplaycontroller.value == 0.0;
+  }
+
+  Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar:MediaQuery.of(context).size.width < 640?
-       BottomNavigationBar(
-        currentIndex: ref.watch(indexProvider),
-        onTap: (index) {
-          ref.read(indexProvider.state).state = index;
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.house),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.solidUser),
-            label: "Profile",
-          ),
-        ],
-      ):null,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton:MediaQuery.of(context).size.width < 640? FloatingActionButton(
-        splashColor: AppColors.grey,
-        backgroundColor: AppColors.blue,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return AddQuizz();
+      bottomNavigationBar: MediaQuery.of(context).size.width < 640
+          ? BottomNavigationBar(
+              currentIndex: ref.watch(indexProvider),
+              onTap: (index) {
+                ref.read(indexProvider.state).state = index;
               },
-            ),
-          );
-        },
-        child: FaIcon(
-          FontAwesomeIcons.plus,
-          color: AppColors.lightblue,
-        ),
-      ):null,
-      body: 
-      (MediaQuery.of(context).size.width >= 640)?
-      Row(
-        children: [
-          NavigationRail(
-            onDestinationSelected: (index) {
-              ref.read(indexProvider.state).state = index;
-            },
-            destinations: [
-              const NavigationRailDestination(
-                  icon: FaIcon(FontAwesomeIcons.house),
-                  label: Text(
-                    "Home",
-                  )),
-              NavigationRailDestination(
-                icon: FloatingActionButton(
-                  splashColor: AppColors.grey,
-                  backgroundColor: AppColors.blue,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return AddQuizz();
-                        },
-                      ),
-                    );
-                  },
-                  child: FaIcon(
-                    FontAwesomeIcons.plus,
-                    color: AppColors.lightblue,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: FaIcon(FontAwesomeIcons.house),
                   ),
+                  label: "Home",
                 ),
-                label: Text(""),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.only(bottom: 5.0),
+                    child: FaIcon(FontAwesomeIcons.solidUser),
+                  ),
+                  label: "Profile",
+                ),
+              ],
+            )
+          : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: MediaQuery.of(context).size.width < 640
+          ? FloatingActionButton(
+              splashColor: AppColors.grey,
+              backgroundColor: AppColors.blue,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return AddQuizz();
+                    },
+                  ),
+                );
+              },
+              child: FaIcon(
+                FontAwesomeIcons.plus,
+                color: AppColors.lightblue,
               ),
-              const NavigationRailDestination(
-                icon: FaIcon(FontAwesomeIcons.solidUser),
-                label: Text("Profile"),
-              ),
-            ],
-            selectedIndex: ref.watch(indexProvider),
-          ),
-        IndexedStack(
-        index: ref.watch(indexProvider),
-        children: [AdminHomeScreen(), ProfileScreen()],
-      ),
-        ],
-      ):
-      IndexedStack(
-        index: ref.watch(indexProvider),
-        children: [AdminHomeScreen(), ProfileScreen()],
-      ),
+            )
+          : null,
+      body: (MediaQuery.of(context).size.width >= 640)
+          ? Row(
+              children: [
+                NavigationRail(
+                  onDestinationSelected: (index) {
+                    ref.read(indexProvider.state).state = index;
+                  },
+                  destinations: [
+                    const NavigationRailDestination(
+                        icon: FaIcon(FontAwesomeIcons.house),
+                        label: Text(
+                          "Home",
+                        )),
+                    NavigationRailDestination(
+                      icon: FloatingActionButton(
+                        splashColor: AppColors.grey,
+                        backgroundColor: AppColors.blue,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return AnimatedBuilder(
+                                  animation: _onpagedisplaycontroller,
+                                  builder: (context, child) {
+                                    return FractionalTranslation(
+                                      translation: Offset(
+                                          1.0 - _onpagedisplaycontroller.value,
+                                          0.0),
+                                      child: _isPageClosed()
+                                          ? const SizedBox()
+                                          : const AddQuizz(),
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: FaIcon(
+                          FontAwesomeIcons.plus,
+                          color: AppColors.lightblue,
+                        ),
+                      ),
+                      label: Text(""),
+                    ),
+                    const NavigationRailDestination(
+                      icon: FaIcon(FontAwesomeIcons.solidUser),
+                      label: Text("Profile"),
+                    ),
+                  ],
+                  selectedIndex: ref.watch(indexProvider),
+                ),
+                IndexedStack(
+                  index: ref.watch(indexProvider),
+                  children: [AdminHomeScreen(), ProfileScreen()],
+                ),
+              ],
+            )
+          : IndexedStack(
+              index: ref.watch(indexProvider),
+              children: [AdminHomeScreen(), ProfileScreen()],
+            ),
     );
   }
 }

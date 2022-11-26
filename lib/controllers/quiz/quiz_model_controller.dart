@@ -70,7 +70,9 @@ class quizListController extends StateNotifier<AsyncValue<List<QuizModel>>> {
 
   quizListController(
     this.ref,
-  ) : super(AsyncValue.data([QuizModel.empty()])) {}
+  ) : super(AsyncValue.data([QuizModel.empty()])) {
+     retrieveallquizes();
+  }
 
   Future<List<QuizModel>?> retrieveQuizes({required String categoryname}) async {
     try {
@@ -86,6 +88,20 @@ class quizListController extends StateNotifier<AsyncValue<List<QuizModel>>> {
     }
     return null;
   }
+    Future<void> retrieveallquizes() async {
+    
+    try {
+      final quizes= await ref
+            .read(quizRepositoryProvider).retrieveAllQuizes();
+        if (mounted) {
+         state = AsyncValue.data(quizes);
+        }
+      state = AsyncValue.data(quizes);
+      
+    } on CustomException catch (e, st) {
+      state = AsyncValue.error(e, st);
+    }
+  } 
 
   Future<void> createQuiz(
       {required QuizModel quiz, bool obtained = false}) async {

@@ -13,41 +13,44 @@ class ChooseUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:AppColors.lightblue,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          AnimatedButton(
-            isValidated: false,
-            text: "Admin Panel",
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return AdminBotnavbar();
-                  },
-                ),
-              );
-            },
-            color: AppColors.blue,
-          ),
-          const SizedBox(height: defaultPadding,),
-          AnimatedButton(
-            isValidated: false,
-            text: "Signup",
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return SignUpScreen();
-                  },
-                ),
-              );
-            },
-            color: AppColors.grey,
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AnimatedButton(
+              isValidated: false,
+              text: "Admin Panel",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return AdminBotnavbar();
+                    },
+                  ),
+                );
+              },
+              color: AppColors.blue,
+            ),
+            const SizedBox(height: defaultPadding,),
+            AnimatedButton(
+              isValidated: false,
+              text: "Client App",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SignUpScreen();
+                    },
+                  ),
+                );
+              },
+              color: AppColors.grey,
+            ),
+          ],
+        ),
       ),
     );
   }

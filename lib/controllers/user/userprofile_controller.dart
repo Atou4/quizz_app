@@ -33,8 +33,24 @@ class UserProfileController extends StateNotifier<AsyncValue<UserModel>> {
   final String? _userId;
 
   UserProfileController(this.ref, this._userId) : super(AsyncValue.data(UserModel.empty())) {
+    retrieveusers() ;
     if (_userId != null) {
       retrieveuser();
+    }
+  }
+
+  Future<void> retrieveusers() async {
+    
+    try {
+        final users = await ref
+            .read(userRepositoryProvider)
+            .retrieveUsers();
+        if (mounted) {
+          state = AsyncValue.data(UserModel(name: "name", email: "email",aspectRatio: users.length.ceilToDouble()));
+        }
+        
+    } on CustomException catch (e, st) {
+      state = AsyncValue.error(e, st);
     }
   }
 
@@ -58,7 +74,6 @@ class UserProfileController extends StateNotifier<AsyncValue<UserModel>> {
   Future<void> updateUser({required UserModel updateduser}) async {
     try {
       state = AsyncValue.loading();
-      debugPrint(state.isLoading.toString());
       await ref.read(userRepositoryProvider)
           .updateUser(userId: _userId!, user: updateduser);
           if (mounted) {
