@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quizz_app/views/animations/empty_animation.dart';
 import 'package:quizz_app/views/animations/loading_animation.dart';
-import 'package:quizz_app/views/client/home/components/quizes/quiz_widget.dart';
-
-import '../../../../../controllers/quiz/quiz_model_controller.dart';
+import '../../../../../controllers/quiz/quizlist_stream.dart';
 import '../../../../../widgets/animations/animated_in_effect.dart';
 import '../../../../animations/error_animation.dart';
+import 'quiz_widget.dart';
 
 final categorynameprovider = StateProvider<String>((ref) {
   return "Travel";
@@ -26,11 +25,13 @@ class QuizesList extends ConsumerWidget {
         removeTop: true,
         context: context,
         child: quizList.when(
-            data: (data) => data.isEmpty
-                ? EmptyContentsAnimationView()
-                : ListView.builder(
+            data: (data) {
+              if (data.isEmpty){
+                return EmptyContentsAnimationView();
+              }
+              else{
+                return ListView.builder(
                     physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemCount: quizList.value!.length,
                     itemBuilder: (BuildContext context, int index) {
@@ -43,8 +44,10 @@ class QuizesList extends ConsumerWidget {
                             admin: admin,
                           ));
                     },
-                  ),
-            error: (error, _) => ErrorAnimationView(),
-            loading: () => LoadingAnimationView()));
+                  );
+              }
+            },
+            error: (error, _) =>  const ErrorAnimationView(),
+            loading: () => const LoadingAnimationView()));
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:quizz_app/views/animations/empty_animation.dart';
 import 'package:quizz_app/views/animations/go_animation.dart';
 
 import '../../../controllers/quiz/quiz_gaem_controller.dart';
@@ -75,7 +74,7 @@ class QuizQuestions extends HookConsumerWidget {
                                     onTap: () {
                                       debugPrint(
                                           state.correct.length.toString());
-                                      ref
+                                     /*ref
                                           .read(quizControllerProvider.notifier)
                                           .nextQuestion(questions,
                                               pageController.page!.toInt());
@@ -86,7 +85,7 @@ class QuizQuestions extends HookConsumerWidget {
                                               const Duration(milliseconds: 250),
                                           curve: Curves.linear,
                                         );
-                                      }
+                                      }*/
                                     },
                                     child: ClipRRect(
                                       child: Container(
@@ -95,11 +94,21 @@ class QuizQuestions extends HookConsumerWidget {
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 15, vertical: 5),
                                         decoration: BoxDecoration(
-                                          color: question!.correctanswer
+                                          color:
+                                          questions[index]! .correctanswer.toString()== state.selectedAnswer
+                                          ?AppColors.green
+                                          :AppColors.lightcoral
+                                          /* pageController.page!.toInt() + 1 == index
+                                          ? question!.correctanswer 
                                                       .toString() ==
                                                   state.selectedAnswer
                                               ? AppColors.green
-                                              : AppColors.lightcoral,
+                                              : AppColors.lightcoral
+                                          : question!.correctanswer
+                                                      .toString() ==
+                                                  state.selectedAnswer
+                                              ? AppColors.green
+                                              : AppColors.lightcoral,*/
                                         ),
                                       ),
                                     ),
@@ -157,7 +166,7 @@ class QuizQuestions extends HookConsumerWidget {
                                 isCorrect:
                                     question.incorrrectanswer![1].toString() ==
                                         question.correctanswer,
-                                isDisplayingAnswer: state.answered,
+                                isDisplayingAnswer: state.answered, 
                                 onTap: () => ref
                                     .read(quizControllerProvider.notifier)
                                     .submitAnswer(

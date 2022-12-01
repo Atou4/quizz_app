@@ -40,7 +40,29 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
   <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAU2GOcHJMkXk32nE5LpcaQqCIpDCOzlpc",
+        authDomain: "noreply@quizzy-4352c.firebaseapp.com",
+        databaseURL: "https://quizzy-4352c.firebaseio.com",
+        projectId: "quizzy-4352c",
+        storageBucket: "quizzy-4352c.appspot.com.appspot.com",
+        messagingSenderId: "725991535297",
+        appId: "1:725991535297:android:89d0b1965e146bb73b1a40",
+      };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+  
+<script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -54,5 +76,6 @@
       });
     });
   </script>
+  <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>

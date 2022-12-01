@@ -8,12 +8,14 @@ import 'package:quizz_app/views/client/bottomnav_bar.dart';
 import 'package:quizz_app/views/select_user.dart';
 import 'package:quizz_app/widgets/loading/loading_error.dart';
 
+import 'firebase_options.dart';
 import 'controllers/auth/auth_controller.dart';
 import 'providers/loading/loading_provider.dart';
 
+import 'package:responsive_framework/responsive_framework.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   runApp(ProviderScope(child: MyApp()));
 }
 
@@ -23,6 +25,15 @@ class MyApp extends ConsumerWidget {
     final authenticationState = ref.watch(authProvider);
 
     return MaterialApp(
+      builder: (context, widget) => ResponsiveWrapper.builder(
+        ClampingScrollWrapper.builder(context, widget!),
+        breakpoints: const [
+          ResponsiveBreakpoint.resize(350, name: MOBILE),
+          ResponsiveBreakpoint.autoScale(600, name: TABLET),
+          ResponsiveBreakpoint.resize(800, name: DESKTOP),
+          ResponsiveBreakpoint.autoScale(1700, name: 'XL'),
+        ],
+      ),
       debugShowCheckedModeBanner: false,
       title: 'Quizz app',
       theme: Apptheme.lightTheme, 

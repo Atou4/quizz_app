@@ -140,10 +140,25 @@ class _AdminBotnavbarState extends ConsumerState<AdminBotnavbar>
                   ],
                   selectedIndex: ref.watch(indexProvider),
                 ),
-                IndexedStack(
-                  index: ref.watch(indexProvider),
-                  children: [AdminHomeScreen(), ProfileScreen()],
-                ),
+                IndexedStack(index: ref.watch(indexProvider), children: [
+                  //AdminHomeScreen(),
+
+                  Scaffold(
+                    appBar: AppBar(
+                      title: Text(
+                        'Admin Panel',
+                        style: Theme.of(context).textTheme.headline5!.copyWith(
+                            color: AppColors.white,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.justify,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    color: AppColors.blue,
+                  )
+                ] //ProfileScreen(),
+                    ),
               ],
             )
           : IndexedStack(

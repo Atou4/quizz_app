@@ -66,15 +66,12 @@ class QuizListScreen extends ConsumerWidget {
                     ),
               ),
               const SizedBox(height: defaultPadding,),
-              Padding(
-                 padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-                child: Column(
-                  children: [
-                    QuizesList(categoryname: category,admin: admin,),
-                  ],
+              Expanded(
+                child: Padding(
+                   padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+                  child: QuizesList(categoryname: category,admin: admin,),
                 ),
               ),
-              const SizedBox(height: defaultPadding,)
             ],
           ),
         ),

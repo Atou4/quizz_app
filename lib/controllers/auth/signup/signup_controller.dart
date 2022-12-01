@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:form_validators/form_validators.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quizz_app/models/user_model.dart';
@@ -17,8 +16,6 @@ final signUpProvider =
 class SignUpController extends StateNotifier<SignUpState> {
   final AuthenticationRepository _authenticationRepository;
   SignUpController(this._authenticationRepository) : super(const SignUpState());
-
-  final FirebaseMessaging _messaging = FirebaseMessaging.instance;
   
   void onNameChange(String value) {
     final name = Name.dirty(value);
@@ -64,11 +61,10 @@ class SignUpController extends StateNotifier<SignUpState> {
   void signUpWithEmailAndPassword() async {
     if (!state.status.isValidated) return;
     state = state.copyWith(status: FormzStatus.submissionInProgress);
-    String? token = await _messaging.getToken();
     try {
       await _authenticationRepository.signUpWithEmailAndPassword(
         password: state.password.value,
-        userr: UserModel(name: state.name.value, email: state.email.value,token: token),
+        userr: UserModel(name: state.name.value, email: state.email.value,token: "token"),
         email: state.email.value,
       );
 
