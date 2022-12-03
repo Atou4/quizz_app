@@ -1,6 +1,5 @@
 
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:quizz_app/features/quiz_app/auth/controllers/auth_controller.dart';
 import 'package:quizz_app/extensions/image_upload/get_collectionname_from_file_type.dart';

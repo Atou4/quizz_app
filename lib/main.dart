@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:quizz_app/features/admin_app/admin_bottomnav.dart';
 import 'package:quizz_app/features/quiz_app/auth/views/login/login_screen.dart';
 import 'package:quizz_app/utils/app_theme.dart';
 import 'package:quizz_app/features/quiz_app/bottomnav_bar.dart';
@@ -53,7 +52,7 @@ class MyApp extends ConsumerWidget {
           return Botnavbar();
         } else if (authenticationState.status ==
             AuthenticationStatus.unauthenticated) {
-          return  Botnavbar();
+          return  ChooseUser();
         } else {
           return const LoginScreen();
         }
