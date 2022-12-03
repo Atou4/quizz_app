@@ -1,7 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:quizz_app/controllers/quiz/quiz_model_controller.dart';
 
-import '../../controllers/user/userprofile_controller.dart';
+import '../../features/quiz_app/user_profile/controllers/userprofile_controller.dart';
 
 
 final isLoadingProvider =Provider<bool>((ref) {

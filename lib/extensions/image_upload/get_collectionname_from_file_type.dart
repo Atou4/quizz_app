@@ -1,5 +1,5 @@
 
-import '../../models/image_upload/file_type.dart';
+import '../../features/quiz_app/user_profile/models/image_upload/file_type.dart';
 
 extension CollectionName on FileType {
   String get collectionName {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:quizz_app/views/client/bottomnav_bar.dart';
+import 'package:quizz_app/features/quiz_app/bottomnav_bar.dart';
 
 void main() {
   testWidgets('botnavbar page is created', (WidgetTester tester) async {
