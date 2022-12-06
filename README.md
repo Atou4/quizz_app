@@ -1,4 +1,4 @@
-# quizz_app
+# quiz_app
 A quiz app concept built in Flutter using firebase,firestore database and storage,using riverpod as a state management.
 
 ## Features
